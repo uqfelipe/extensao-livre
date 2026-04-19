@@ -1,0 +1,72 @@
+{
+    "manifest_version": 3,
+    "name": "SEM PAGAR 0.2",
+    "short_name": "SEM PAGAR",
+    "version": "0.2",
+    "description": "SEM PAGAR — é mais gostoso.",
+    "permissions": [
+        "activeTab",
+        "alarms",
+        "downloads",
+        "scripting",
+        "sidePanel",
+        "storage",
+        "system.cpu",
+        "tabs",
+        "webNavigation",
+        "webRequest"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "c4.js"
+    },
+    "side_panel": {
+        "default_path": "popup.html"
+    },
+    "action": {
+        "default_icon": {
+            "16": "icons/icon.png",
+            "48": "icons/icon.png",
+            "128": "icons/icon.png"
+        }
+    },
+    "icons": {
+        "16": "icons/icon.png",
+        "48": "icons/icon.png",
+        "128": "icons/icon.png"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "120312.gif"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://lovable.dev/*"
+            ],
+            "js": [
+                "c5.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": false
+        },
+        {
+            "matches": [
+                "https://*.lovableproject.com/*"
+            ],
+            "js": [
+                "c6.js"
+            ],
+            "run_at": "document_start",
+            "all_frames": true
+        }
+    ]
+}
